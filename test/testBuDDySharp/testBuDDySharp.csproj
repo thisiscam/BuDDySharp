@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{459BDC9A-07AD-4DAA-A4E6-426256FD8F19}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>testBuDDySharp</RootNamespace>
+    <AssemblyName>testBuDDySharp</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Externalconsole>true</Externalconsole>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Externalconsole>true</Externalconsole>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="..\..\build\generated\SWIGTYPE_p_FILE.cs">
+      <Link>generated\SWIGTYPE_p_FILE.cs</Link>
+    </Compile>
+    <Compile Include="..\..\build\generated\SWIGTYPE_p_f_int__void.cs">
+      <Link>generated\SWIGTYPE_p_f_int__void.cs</Link>
+    </Compile>
+    <Compile Include="..\..\build\generated\SWIGTYPE_p_f_int_int__void.cs">
+      <Link>generated\SWIGTYPE_p_f_int_int__void.cs</Link>
+    </Compile>
+    <Compile Include="..\..\build\generated\SWIGTYPE_p_f_int_p_struct_s_bddGbcStat__void.cs">
+      <Link>generated\SWIGTYPE_p_f_int_p_struct_s_bddGbcStat__void.cs</Link>
+    </Compile>
+    <Compile Include="..\..\build\generated\SWIGTYPE_p_f_p_FILE_int__void.cs">
+      <Link>generated\SWIGTYPE_p_f_p_FILE_int__void.cs</Link>
+    </Compile>
+    <Compile Include="..\..\build\generated\SWIGTYPE_p_f_p_char_int__void.cs">
+      <Link>generated\SWIGTYPE_p_f_p_char_int__void.cs</Link>
+    </Compile>
+    <Compile Include="..\..\build\generated\SWIGTYPE_p_f_void__int.cs">
+      <Link>generated\SWIGTYPE_p_f_void__int.cs</Link>
+    </Compile>
+    <Compile Include="..\..\build\generated\SWIGTYPE_p_int.cs">
+      <Link>generated\SWIGTYPE_p_int.cs</Link>
+    </Compile>
+    <Compile Include="..\..\build\generated\SWIGTYPE_p_p_int.cs">
+      <Link>generated\SWIGTYPE_p_p_int.cs</Link>
+    </Compile>
+    <Compile Include="..\..\build\generated\bdd.cs">
+      <Link>generated\bdd.cs</Link>
+    </Compile>
+    <Compile Include="..\..\build\generated\bddCacheStat.cs">
+      <Link>generated\bddCacheStat.cs</Link>
+    </Compile>
+    <Compile Include="..\..\build\generated\bddGbcStat.cs">
+      <Link>generated\bddGbcStat.cs</Link>
+    </Compile>
+    <Compile Include="..\..\build\generated\bddPINVOKE.cs">
+      <Link>generated\bddPINVOKE.cs</Link>
+    </Compile>
+    <Compile Include="..\..\build\generated\bddPair.cs">
+      <Link>generated\bddPair.cs</Link>
+    </Compile>
+    <Compile Include="..\..\build\generated\bddStat.cs">
+      <Link>generated\bddStat.cs</Link>
+    </Compile>
+    <Compile Include="generated\bdd_ext.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <None Include="..\..\build\generated\bddCSHARP_wrap.c">
+      <Link>generated\bddCSHARP_wrap.c</Link>
+    </None>
+    <None Include="..\..\build\libbdd.so">
+      <Link>libbdd.so</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>
