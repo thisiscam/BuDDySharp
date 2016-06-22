@@ -4,7 +4,7 @@ namespace buddysharp {
 	public delegate void bddgbchandler(int arg0, SWIGTYPE_p_f_int_p_struct_s_bddGbcStat__void arg1);
 	public delegate void bdd2inthandler(int arg0, int arg1);
 	public delegate int  bddsizehandler();
-	public delegate void bddfilehandler(SWIGTYPE_p_f_p_FILE_int__void arg0, int arg1);
+	public delegate void bddfilehandler(SWIGTYPE_p_FILE arg0, int arg1);
 	public delegate void bddallsathandler(SWIGTYPE_p_f_p_char_int__void arg0, int arg1);
 
 	public partial class bdd {
