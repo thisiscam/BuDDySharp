@@ -12,11 +12,12 @@ SET(BUDDY_ROOT_DIR "buddy")
 INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR}/${BUDDY_ROOT_DIR}/src)
 
 set(CMAKE_SWIG_OUTDIR "generated")
-SET(CMAKE_SWIG_FLAGS "-namespace" "buddysharp")
+SET(CMAKE_SWIG_FLAGS "-namespace" "buddysharp" "-larrays_csharp.i" "-lcarrays.i")
 
-SWIG_ADD_MODULE(bdd csharp bdd.i)
-SWIG_LINK_LIBRARIES(bdd buddy)
+SET_SOURCE_FILES_PROPERTIES(buddysharp.i PROPERTIES CPLUSPLUS ON)
+SWIG_ADD_MODULE(buddysharp csharp buddysharp.i)
+SWIG_LINK_LIBRARIES(buddysharp buddy)
 
-add_custom_command(TARGET ${SWIG_MODULE_bdd_REAL_NAME} POST_BUILD
+add_custom_command(TARGET ${SWIG_MODULE_buddysharp_REAL_NAME} POST_BUILD
                    COMMAND ${CMAKE_COMMAND} -E copy
                    ${CMAKE_SOURCE_DIR}/bdd_ext.cs ${swig_outdir})

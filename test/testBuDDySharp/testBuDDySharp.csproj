@@ -19,6 +19,7 @@
     <WarningLevel>4</WarningLevel>
     <Externalconsole>true</Externalconsole>
     <PlatformTarget>x86</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <DebugType>full</DebugType>
@@ -28,6 +29,7 @@
     <WarningLevel>4</WarningLevel>
     <Externalconsole>true</Externalconsole>
     <PlatformTarget>x86</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -35,26 +37,14 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="..\..\build\generated\SWIGTYPE_p_FILE.cs">
-      <Link>generated\SWIGTYPE_p_FILE.cs</Link>
+    <Compile Include="..\..\build\generated\SWIGTYPE_p_f_r_q_const__bdd__bdd.cs">
+      <Link>generated\SWIGTYPE_p_f_r_q_const__bdd__bdd.cs</Link>
     </Compile>
-    <Compile Include="..\..\build\generated\SWIGTYPE_p_f_int__void.cs">
-      <Link>generated\SWIGTYPE_p_f_int__void.cs</Link>
+    <Compile Include="..\..\build\generated\SWIGTYPE_p_f_r_q_const__bdd_r_q_const__bdd__bdd.cs">
+      <Link>generated\SWIGTYPE_p_f_r_q_const__bdd_r_q_const__bdd__bdd.cs</Link>
     </Compile>
-    <Compile Include="..\..\build\generated\SWIGTYPE_p_f_int_int__void.cs">
-      <Link>generated\SWIGTYPE_p_f_int_int__void.cs</Link>
-    </Compile>
-    <Compile Include="..\..\build\generated\SWIGTYPE_p_f_int_p_struct_s_bddGbcStat__void.cs">
-      <Link>generated\SWIGTYPE_p_f_int_p_struct_s_bddGbcStat__void.cs</Link>
-    </Compile>
-    <Compile Include="..\..\build\generated\SWIGTYPE_p_f_p_FILE_int__void.cs">
-      <Link>generated\SWIGTYPE_p_f_p_FILE_int__void.cs</Link>
-    </Compile>
-    <Compile Include="..\..\build\generated\SWIGTYPE_p_f_p_char_int__void.cs">
-      <Link>generated\SWIGTYPE_p_f_p_char_int__void.cs</Link>
-    </Compile>
-    <Compile Include="..\..\build\generated\SWIGTYPE_p_f_void__int.cs">
-      <Link>generated\SWIGTYPE_p_f_void__int.cs</Link>
+    <Compile Include="..\..\build\generated\SWIGTYPE_p_f_r_q_const__bdd_r_q_const__bdd_r_q_const__bdd__bdd.cs">
+      <Link>generated\SWIGTYPE_p_f_r_q_const__bdd_r_q_const__bdd_r_q_const__bdd__bdd.cs</Link>
     </Compile>
     <Compile Include="..\..\build\generated\SWIGTYPE_p_int.cs">
       <Link>generated\SWIGTYPE_p_int.cs</Link>
@@ -62,17 +52,11 @@
     <Compile Include="..\..\build\generated\SWIGTYPE_p_p_int.cs">
       <Link>generated\SWIGTYPE_p_p_int.cs</Link>
     </Compile>
+    <Compile Include="..\..\build\generated\SWIGTYPE_p_std__ostream.cs">
+      <Link>generated\SWIGTYPE_p_std__ostream.cs</Link>
+    </Compile>
     <Compile Include="..\..\build\generated\bdd.cs">
       <Link>generated\bdd.cs</Link>
-    </Compile>
-    <Compile Include="..\..\build\generated\bddCacheStat.cs">
-      <Link>generated\bddCacheStat.cs</Link>
-    </Compile>
-    <Compile Include="..\..\build\generated\bddGbcStat.cs">
-      <Link>generated\bddGbcStat.cs</Link>
-    </Compile>
-    <Compile Include="..\..\build\generated\bddPINVOKE.cs">
-      <Link>generated\bddPINVOKE.cs</Link>
     </Compile>
     <Compile Include="..\..\build\generated\bddPair.cs">
       <Link>generated\bddPair.cs</Link>
@@ -80,15 +64,23 @@
     <Compile Include="..\..\build\generated\bddStat.cs">
       <Link>generated\bddStat.cs</Link>
     </Compile>
-    <Compile Include="generated\bdd_ext.cs" />
+    <Compile Include="..\..\build\generated\bdd_ext.cs">
+      <Link>generated\bdd_ext.cs</Link>
+    </Compile>
+    <Compile Include="..\..\build\generated\buddysharp.cs">
+      <Link>generated\buddysharp.cs</Link>
+    </Compile>
+    <Compile Include="..\..\build\generated\buddysharpPINVOKE.cs">
+      <Link>generated\buddysharpPINVOKE.cs</Link>
+    </Compile>
+    <Compile Include="..\..\build\generated\bvector.cs">
+      <Link>generated\bvector.cs</Link>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <None Include="..\..\build\generated\bddCSHARP_wrap.c">
-      <Link>generated\bddCSHARP_wrap.c</Link>
-    </None>
-    <None Include="..\..\build\libbdd.so">
-      <Link>libbdd.so</Link>
+    <None Include="..\..\build\libbuddysharp.so">
+      <Link>libbuddysharp.so</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
