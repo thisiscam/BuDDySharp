@@ -54,6 +54,27 @@
 %rename(LeftShiftEqual) operator<<=;
 %rename(bvector) bvec; 
 
+%typemap(imtype, out="System.IntPtr") bddallsathandler, bddallsathandler& "bddallsathandler_wrapped" 
+%typemap(csin) bddallsathandler, bddallsathandler& "bddallsathandler_wrapper($csinput)" 
+
+%pragma(csharp) moduleimports= %{
+using System;
+using System.Runtime.InteropServices;
+%}
+
+%csmethodmodifiers bdd_makeset "public unsafe";
+%csmethodmodifiers bdd_setpairs "public unsafe";
+%csmethodmodifiers bdd_setbddpairs "public unsafe";
+%csmethodmodifiers bdd_buildcube "public unsafe";
+%csmethodmodifiers bdd_ibuildcube "public unsafe";
+%csmethodmodifiers bdd_anodecount "public unsafe";
+%csmethodmodifiers bdd_fnload "public unsafe";
+%csmethodmodifiers bdd_setvarorder "public unsafe";
+
+%csmethodmodifiers bdd_makeset_addref "public unsafe";
+%csmethodmodifiers bdd_buildcube_addref "public unsafe";
+%csmethodmodifiers bdd_ibuildcube_addref "public unsafe";
+
 typedef int BDD;
 
 typedef struct s_bddPair
