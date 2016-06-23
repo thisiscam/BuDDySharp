@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7F126EA0-8883-4D30-AE59-01BABDBDB158}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>BuDDySharp</RootNamespace>
+    <AssemblyName>BuDDySharp</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="..\..\build\generated\BDDException.cs">
+      <Link>generated\BDDException.cs</Link>
+    </Compile>
+    <Compile Include="..\..\build\generated\BuDDySharp.cs">
+      <Link>generated\BuDDySharp.cs</Link>
+    </Compile>
+    <Compile Include="..\..\build\generated\BuDDySharpPINVOKE.cs">
+      <Link>generated\BuDDySharpPINVOKE.cs</Link>
+    </Compile>
+    <Compile Include="..\..\build\generated\SWIGTYPE_p_int.cs">
+      <Link>generated\SWIGTYPE_p_int.cs</Link>
+    </Compile>
+    <Compile Include="..\..\build\generated\bdd.cs">
+      <Link>generated\bdd.cs</Link>
+    </Compile>
+    <Compile Include="..\..\build\generated\bddPair.cs">
+      <Link>generated\bddPair.cs</Link>
+    </Compile>
+    <Compile Include="..\..\build\generated\bddStat.cs">
+      <Link>generated\bddStat.cs</Link>
+    </Compile>
+    <Compile Include="..\..\build\generated\bdd_ext.cs">
+      <Link>generated\bdd_ext.cs</Link>
+    </Compile>
+    <Compile Include="..\..\build\generated\bvector.cs">
+      <Link>generated\bvector.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <None Include="..\..\build\libbuddysharp.so">
+      <Link>libbuddysharp.so</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>
