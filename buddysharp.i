@@ -105,6 +105,7 @@ using System.Runtime.InteropServices;
 %}
 
 %pragma(csharp) moduleclassmodifiers = "public partial class"
+%pragma(csharp) imclassclassmodifiers="[System.Security.SuppressUnmanagedCodeSecurity]\nclass"
 
 %csmethodmodifiers bdd_makesetpp "public unsafe";
 %csmethodmodifiers bdd_setpairs "public unsafe";
