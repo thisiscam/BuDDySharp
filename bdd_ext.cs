@@ -8,7 +8,7 @@ namespace BuDDySharp {
     public delegate void bddallsathandler(sbyte[] arg0);
 
     [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BuDDySharp))]
-    public unsafe delegate bdd bvecmapfun1([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BuDDySharp))] bdd arg0);
+    public delegate bdd bvecmapfun1([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BuDDySharp))] bdd arg0);
 
     [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BuDDySharp))]
     public delegate bdd bvecmapfun2(
