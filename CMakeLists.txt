@@ -16,7 +16,7 @@ SET(CMAKE_SWIG_FLAGS "-namespace" "BuDDySharp" "-larrays_csharp.i" "-lcarrays.i"
 
 SET_SOURCE_FILES_PROPERTIES(buddysharp.i PROPERTIES CPLUSPLUS ON)
 SWIG_ADD_MODULE(buddysharp csharp buddysharp.i)
-SWIG_LINK_LIBRARIES(buddysharp buddy)
+SWIG_LINK_LIBRARIES(buddysharp buddy_shared)
 
 add_custom_command(TARGET ${SWIG_MODULE_buddysharp_REAL_NAME} POST_BUILD
                    COMMAND ${CMAKE_COMMAND} -E copy

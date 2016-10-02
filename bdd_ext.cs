@@ -96,4 +96,17 @@ namespace BuDDySharp {
         } 
         #endregion
     }
+
+    public partial class bdd {
+        public override string ToString ()
+        {
+            if (this.EqualEqual (BuDDySharp.bddtrue)) {
+                return "t";
+            } else if (this.EqualEqual (BuDDySharp.bddfalse)) {
+                return "";
+            } else {
+                return String.Format("({0} {1} {2})", BuDDySharp.var(this), BuDDySharp.low(this), BuDDySharp.high(this));
+            }
+        }
+    }
 }

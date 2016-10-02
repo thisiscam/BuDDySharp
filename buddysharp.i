@@ -109,6 +109,7 @@ using System.Runtime.InteropServices;
 
 SWIG_CSBODY_PROXY(public, public, bdd)
 SWIG_CSBODY_TYPEWRAPPER(public, public, public, bdd)
+%typemap(csclassmodifiers) bdd "public partial class"
 
 %csmethodmodifiers bdd_makesetpp "public unsafe";
 %csmethodmodifiers bdd_setpairs "public unsafe";
