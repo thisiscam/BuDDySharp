@@ -4,9 +4,11 @@ using System.Runtime.InteropServices;
 namespace BuDDySharp {
 
     delegate void bddallsathandler_wrapped(IntPtr arg0, int arg1);
-
+    
     public delegate void bddallsathandler(sbyte[] arg0);
 
+    public delegate void bddgbchandler(int arg0, IntPtr arg1);
+    
     [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BuDDySharp))]
     public delegate bdd bvecmapfun1([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BuDDySharp))] bdd arg0);
 
