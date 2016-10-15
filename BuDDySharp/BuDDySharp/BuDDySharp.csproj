@@ -64,8 +64,12 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <None Include="..\..\build\libbuddysharp.so">
-      <Link>libbuddysharp.so</Link>
+    <None Include="..\..\build\libbuddysharp_native.so" Condition="'$(OS)' != 'Windows_NT'">
+      <Link>libbuddysharp_native.so</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\build\Debug\buddysharp_native.dll" Condition="'$(OS)' == 'Windows_NT'">
+      <Link>buddysharp_native.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
