@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -65,9 +65,6 @@
     <Compile Include="..\..\build\generated\BuDDySharpPINVOKE.cs">
       <Link>generated\BuDDySharpPINVOKE.cs</Link>
     </Compile>
-    <Compile Include="..\..\build\generated\SWIGTYPE_p_f_int_p_s_bddGbcStat__void.cs">
-      <Link>generated\SWIGTYPE_p_f_int_p_s_bddGbcStat__void.cs</Link>
-    </Compile>
     <Compile Include="..\..\build\generated\SWIGTYPE_p_int.cs">
       <Link>generated\SWIGTYPE_p_int.cs</Link>
     </Compile>
@@ -99,6 +96,12 @@
     <None Include="..\..\build\Debug\buddysharp_native.dll" Condition="'$(OS)' == 'Windows_NT'">
       <Link>buddysharp_native.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\build\buddy\src\Debug\buddy_shared.dll">
+      <Link>buddy_shared.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 </Project>

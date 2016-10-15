@@ -23,3 +23,5 @@ add_custom_command(TARGET ${SWIG_MODULE_buddysharp_native_REAL_NAME} POST_BUILD
                    COMMAND ${CMAKE_COMMAND} -E copy
                    ${CMAKE_SOURCE_DIR}/bdd_ext.cs ${CMAKE_SOURCE_DIR}/BDDException.cs 
                    ${swig_outdir})
+
+set_target_properties(${SWIG_MODULE_buddysharp_native_REAL_NAME} PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS TRUE BUILD_SHARED_LIBS TRUE)
