@@ -18,6 +18,12 @@ namespace BuDDySharp.Test
 				Console.WriteLine(tmp.EqualEqual(BuDDySharp.bddtrue));	
 				return tmp;
 			});
+
+			// GC test
+			var x = BuDDySharp.bddfalse;
+			while (true) {
+				x = x.Or(BuDDySharp.ithvar(11));
+			}
 		}
 		public static bdd test(bdd x) {
 			BuDDySharp.printdot (x);

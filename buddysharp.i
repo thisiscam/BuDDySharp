@@ -37,6 +37,8 @@
 %typemap(imtype, out="System.IntPtr") bddallsathandler, bddallsathandler& "bddallsathandler_wrapped" 
 %typemap(csin) bddallsathandler, bddallsathandler& "bddallsathandler_wrapper($csinput)" 
 
+%typemap(imtype, out="System.IntPtr") bddgbchandler, bddgbchandler& "bddgbchandler" 
+
 %define %return_int_array(FN_NAME)
    %typemap(imtype) int *numvars "ref int"
    %typemap(csin) int *numvars "ref $csinput" 
@@ -107,6 +109,10 @@ using System.Runtime.InteropServices;
 %pragma(csharp) moduleclassmodifiers = "public partial class"
 %pragma(csharp) imclassclassmodifiers="[System.Security.SuppressUnmanagedCodeSecurity]\nclass"
 
+SWIG_CSBODY_PROXY(public, public, bdd)
+SWIG_CSBODY_TYPEWRAPPER(public, public, public, bdd)
+%typemap(csclassmodifiers) bdd "public partial class"
+
 %csmethodmodifiers bdd_makesetpp "public unsafe";
 %csmethodmodifiers bdd_setpairs "public unsafe";
 %csmethodmodifiers bdd_setbddpairs "public unsafe";
@@ -140,7 +146,19 @@ typedef struct s_bddStat
    int gbcnum;
 } bddStat;
 
+typedef struct s_bddGbcStat
+{
+   int nodes;
+   int freenodes;
+   long time;
+   long sumtime;
+   int num;
+} bddGbcStat;
+
 typedef void (*bddallsathandler)(char*, int);
+typedef void (*bddgbchandler)(int,bddGbcStat*);
+
+extern bddgbchandler  bdd_gbc_hook(bddgbchandler);
 
 %apply int FIXED[] {
    int *varset,
@@ -331,6 +349,22 @@ private:
 
 extern int bdd_cpp_init(int nodesize, int cachesize);
 
+extern void     bdd_done(void);
+extern int      bdd_setvarnum(int);
+extern int      bdd_extvarnum(int);
+extern int      bdd_isrunning(void);
+extern int      bdd_setmaxnodenum(int);
+extern int      bdd_setmaxincrease(int);
+extern int      bdd_setminfreenodes(int);
+extern int      bdd_getnodenum(void);
+extern int      bdd_getallocnum(void);
+extern char*    bdd_versionstr(void);
+extern int      bdd_versionnum(void);
+extern void     bdd_stats(bddStat *);
+extern void     bdd_printstat(void);
+
+extern int      bdd_setcacheratio(int);
+
 inline void bdd_stats(bddStat& s)
 { bdd_stats(&s); }
 
@@ -351,6 +385,7 @@ inline int* fdd_scanallvar_csharp(const bdd &r, int* numvars) {
 typedef bdd* (*bvecmapfun1)(const bdd *);
 typedef bdd* (*bvecmapfun2)(const bdd *left, const bdd *right);
 typedef bdd* (*bvecmapfun3)(const bdd *, const bdd *, const bdd *);
+typedef void (*bddgbchandler)(int,bddGbcStat*);
 
 /*=== User BVEC class ==================================================*/
 

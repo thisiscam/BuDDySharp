@@ -4,9 +4,11 @@ using System.Runtime.InteropServices;
 namespace BuDDySharp {
 
     delegate void bddallsathandler_wrapped(IntPtr arg0, int arg1);
-
+    
     public delegate void bddallsathandler(sbyte[] arg0);
 
+    public delegate void bddgbchandler(int arg0, IntPtr arg1);
+    
     [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BuDDySharp))]
     public delegate bdd bvecmapfun1([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BuDDySharp))] bdd arg0);
 
@@ -95,5 +97,18 @@ namespace BuDDySharp {
             return new BuDDySharp();
         } 
         #endregion
+    }
+
+    public partial class bdd {
+        public override string ToString ()
+        {
+            if (this.EqualEqual (BuDDySharp.bddtrue)) {
+                return "t";
+            } else if (this.EqualEqual (BuDDySharp.bddfalse)) {
+                return "";
+            } else {
+                return String.Format("({0} {1} {2})", BuDDySharp.var(this), BuDDySharp.low(this), BuDDySharp.high(this));
+            }
+        }
     }
 }
