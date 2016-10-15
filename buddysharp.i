@@ -37,7 +37,12 @@
 %typemap(imtype, out="System.IntPtr") bddallsathandler, bddallsathandler& "bddallsathandler_wrapped" 
 %typemap(csin) bddallsathandler, bddallsathandler& "bddallsathandler_wrapper($csinput)" 
 
-%typemap(imtype, out="System.IntPtr") bddgbchandler, bddgbchandler& "bddgbchandler" 
+%typemap(imtype, out="bddgbchandler") bddgbchandler, bddgbchandler& "bddgbchandler" 
+%typemap(cstype) bddgbchandler, bddgbchandler& "bddgbchandler" 
+%typemap(csout, excode=SWIGEXCODE) bddgbchandler bdd_gbc_hook %{{
+      var ret = $imcall;$excode
+      return ret;
+   }%}
 
 %define %return_int_array(FN_NAME)
    %typemap(imtype) int *numvars "ref int"
