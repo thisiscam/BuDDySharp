@@ -105,7 +105,7 @@ namespace BuDDySharp {
             if (this.EqualEqual (BuDDySharp.bddtrue)) {
                 return "t";
             } else if (this.EqualEqual (BuDDySharp.bddfalse)) {
-                return "";
+                return "f";
             } else {
                 return String.Format("({0} {1} {2})", BuDDySharp.var(this), BuDDySharp.low(this), BuDDySharp.high(this));
             }
