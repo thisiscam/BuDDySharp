@@ -97,9 +97,7 @@
       <Link>buddysharp_native.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\build\buddy\src\Debug\buddy_shared.dll">
+    <None Include="..\..\build\buddy\src\Debug\buddy_shared.dll" Condition="'$(OS)' == 'Windows_NT'">
       <Link>buddy_shared.dll</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
