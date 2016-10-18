@@ -91,7 +91,7 @@
   <ItemGroup>
     <None Include="..\..\build\libbuddysharp_native.so" Condition="'$(OS)' != 'Windows_NT'">
       <Link>libbuddysharp_native.so</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="..\..\build\Debug\buddysharp_native.dll" Condition="'$(OS)' == 'Windows_NT'">
       <Link>buddysharp_native.dll</Link>
