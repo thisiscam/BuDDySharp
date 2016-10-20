@@ -18,6 +18,11 @@ SET(CMAKE_SWIG_FLAGS "-namespace" "BuDDySharp" "-larrays_csharp.i" "-lcarrays.i"
 
 SET_SOURCE_FILES_PROPERTIES(buddysharp.i PROPERTIES CPLUSPLUS ON)
 
+# Manually inheriting compile flags for buddy
+if(BUDDY_MARK_PUREBOOL)
+  set(CMAKE_SWIG_FLAGS -DMARK_PUREBOOL ${CMAKE_SWIG_FLAGS})
+endif()
+
 SWIG_ADD_MODULE(buddysharp_native csharp buddysharp.i)
 SWIG_LINK_LIBRARIES(buddysharp_native buddy_shared)
 
@@ -27,3 +32,7 @@ add_custom_command(TARGET ${SWIG_MODULE_buddysharp_native_REAL_NAME} POST_BUILD
                    ${swig_outdir})
 
 set_target_properties(${SWIG_MODULE_buddysharp_native_REAL_NAME} PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS TRUE BUILD_SHARED_LIBS TRUE)
+target_compile_definitions(${SWIG_MODULE_buddysharp_native_REAL_NAME} 
+					PRIVATE
+					$<TARGET_PROPERTY:buddy_shared,INTERFACE_COMPILE_DEFINITIONS>)
+
