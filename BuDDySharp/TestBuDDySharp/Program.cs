@@ -19,6 +19,21 @@ namespace BuDDySharp.Test
 				return tmp;
 			});
 
+#if TEST_PURE_BOOL
+			// Starts with a free set of variables
+			bdd v_50 = BuDDySharp.mark_ithvar_pure_bool(50);
+			bdd v_51 = BuDDySharp.mark_ithvar_pure_bool(51);
+			bdd v_52 = BuDDySharp.ithvar(52);
+			bdd v_53 = BuDDySharp.ithvar(53);
+			
+			check_pure_bool(v_50, true);
+			check_pure_bool(v_52, false);
+			check_pure_bool(v_50.And(v_51), true);
+			check_pure_bool(v_51.Or(v_51), true);
+			check_pure_bool(v_50.Or(v_52), true);
+			check_pure_bool(v_52.And(v_53), false);
+#endif
+
 			// GC test
 			var x = BuDDySharp.bddfalse;
 			while (true) {
@@ -29,5 +44,14 @@ namespace BuDDySharp.Test
 			BuDDySharp.printdot (x);
 			return x.And (BuDDySharp.bddfalse);
 		}
+
+#if TEST_PURE_BOOL
+		public static void check_pure_bool(bdd x, bool is_pure_bool) {
+			if(!BuDDySharp.is_pure_bool(x) == is_pure_bool)
+			{
+				throw new Exception("Failed");	
+			}
+		}
 	}
+#endif
 }
