@@ -267,8 +267,8 @@ private:
    friend bdd      bdd_nithvarpp(int n);
    friend int      bdd_var(const bdd & r);
 #ifdef MARK_PUREBOOL
-   friend bdd      bdd_mark_ithvar_pure_boolpp(int);
-   friend bool     bdd_is_pure_bool(const bdd &);
+   friend bdd      bdd_mark_ithvar_npure_boolpp(int);
+   friend bool     bdd_not_pure_bool(const bdd &);
 #endif
    friend bdd      bdd_low(const bdd & r);
    friend bdd      bdd_high(const bdd & r);
