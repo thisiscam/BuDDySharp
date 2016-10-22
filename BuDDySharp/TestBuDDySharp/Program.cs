@@ -27,7 +27,7 @@ namespace BuDDySharp.Test
 			bdd v_53 = BuDDySharp.ithvar(53);
 			
 			check_npure_bool(BuDDySharp.bddtrue, false);
-			check_npure_bool(BuDDySharp.bddtrue, false);
+			check_npure_bool(BuDDySharp.bddfalse, false);
 			check_npure_bool(v_50, true);
 			check_npure_bool(v_52, false);
 			check_npure_bool(v_50.And(BuDDySharp.bddtrue), true);
@@ -39,6 +39,7 @@ namespace BuDDySharp.Test
 			check_npure_bool(v_50.Or(v_52), true);
 			check_npure_bool(v_50.Or(v_52).And(v_51), true);
 			check_npure_bool(v_52.And(v_53), false);
+			Console.WriteLine("Pure bool test passed");
 #endif
 
 			// GC test
