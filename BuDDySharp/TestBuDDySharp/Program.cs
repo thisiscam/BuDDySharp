@@ -9,7 +9,7 @@ namespace BuDDySharp.Test
 		public unsafe static void Main (string[] args)
 		{
 			Console.WriteLine ("Hello World!");
-			BuDDySharp.cpp_init (1000, 1000);
+			BuDDySharp.init (1000, 1000);
 			BuDDySharp.setvarnum (100);
 			//var t = BuDDySharp.bvec_true(12);
 			//var f = BuDDySharp.bvec_map1 (t, test);
@@ -43,14 +43,14 @@ namespace BuDDySharp.Test
 #endif
 
 			// GC test
-			var x = BuDDySharp.bddfalse;
+			var x = bdd.bddfalse;
 			while (true) {
-				x = x.Or(BuDDySharp.ithvar(11));
+				x = x.Or(bdd.ithvar(11));
 			}
 		}
 		public static bdd test(bdd x) {
-			BuDDySharp.printdot (x);
-			return x.And (BuDDySharp.bddfalse);
+			BuDDySharp.printdot (x.Id);
+			return x.And (bdd.bddfalse);
 		}
 
 #if TEST_PURE_BOOL
@@ -60,6 +60,6 @@ namespace BuDDySharp.Test
 				throw new Exception("Failed");	
 			}
 		}
-	}
 #endif
+	}
 }
