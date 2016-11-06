@@ -61,19 +61,17 @@
     <Compile Include="BuDDySharp.cs" />
     <Compile Include="bdd.cs" />
     <Compile Include="BuDDySharpExt.cs" />
+    <Compile Include="Enums.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <None Include="..\..\build\buddy\src\*buddy_shared.*">
-      <Link>NativeLibs\libbuddy_shared.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <None Include="..\..\build\wrapper\libbuddysharp_extension.*">
+      <Link>libbuddysharp_extension.dylib</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\build\wrapper\*buddysharp_extension.*">
-      <Link>NativeLibs\libbuddysharp_extension.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <None Include="..\..\build\buddy\src\libbuddy_shared.*">
+      <Link>libbuddy_shared.dylib</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="NativeLibs\" />
   </ItemGroup>
 </Project>

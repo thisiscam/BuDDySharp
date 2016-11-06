@@ -14,12 +14,16 @@ namespace BuDDySharp
 		
 		public BDD Id { get { return _id; } }
 		
-		public bdd(BDD id)
+		public bdd(BDD id):this(id, true) { }
+		
+		public bdd(BDD id, bool addref)
 		{
 			this._id = id;
-			BuDDySharp.addref(this._id);
+			if(addref) {
+				BuDDySharp.addref(this._id);
+			}
 		}
-
+		
 		~bdd()
 		{
 			BuDDySharp.delref(this._id);
@@ -27,52 +31,52 @@ namespace BuDDySharp
 
 		public bdd And(bdd r)
 		{
-			return new bdd(BuDDySharp.and(this._id, r._id));
+			return new bdd(BuDDySharp.bdd_and_addref(this._id, r._id), false);
 		}
 
 		public bdd Xor(bdd r)
 		{
-			return new bdd(BuDDySharp.xor(this._id, r._id));
+			return new bdd(BuDDySharp.bdd_xor_addref(this._id, r._id), false);
 		}
 
 		public bdd Or(bdd r)
 		{
-			return new bdd(BuDDySharp.or(this._id, r._id));
+			return new bdd(BuDDySharp.bdd_or_addref(this._id, r._id), false);
 		}
 
 		public bdd Not()
 		{
-			return new bdd(BuDDySharp.not(this._id));
+			return new bdd(BuDDySharp.bdd_not_addref(this._id), false);
 		}
 
 		public bdd Imp(bdd r)
 		{
-			return new bdd(BuDDySharp.imp(this._id, r._id));
+			return new bdd(BuDDySharp.bdd_imp_addref(this._id, r._id), false);
 		}
 		
 		public bdd Biimp(bdd r)
 		{
-			return new bdd(BuDDySharp.biimp(this._id, r._id));
+			return new bdd(BuDDySharp.bdd_biimp_addref(this._id, r._id), false);
 		}
 
 		public bdd Diff(bdd r)
 		{
-			return new bdd(BuDDySharp.apply(this.Id, r.Id, bddop.diff));
+			return new bdd(BuDDySharp.bdd_apply_addref(this.Id, r.Id, bddop.diff), false);
 		}
 
 		public bdd GreaterThan(bdd r)
 		{
-			return new bdd(BuDDySharp.apply(this.Id, r.Id, bddop.diff));
+			return new bdd(BuDDySharp.bdd_apply_addref(this.Id, r.Id, bddop.diff), false);
 		}
 
 		public bdd LessThan(bdd r)
 		{
-			return new bdd(BuDDySharp.apply(this.Id, r.Id, bddop.less));
+			return new bdd(BuDDySharp.bdd_apply_addref(this.Id, r.Id, bddop.less), false);
 		}
 
 		public bdd InvImplies(bdd r)
 		{
-			return new bdd(BuDDySharp.apply(this.Id, r.Id, bddop.invimp));
+			return new bdd(BuDDySharp.bdd_apply_addref(this.Id, r.Id, bddop.invimp), false);
 		}
 		
 		public bool EqualEqual(bdd r)
@@ -87,31 +91,31 @@ namespace BuDDySharp
 		
 #region extensions
 		public static bdd ithvar(int arg0) {
-			return new bdd(BuDDySharp.ithvar(arg0));
+			return new bdd(BuDDySharp.ithvar(arg0), false);
 		}
 		
 		public static bdd nithvar(int arg0) {
-			return new bdd(BuDDySharp.nithvar(arg0));
-		}
-		
-		public static int ithvar(bdd arg0) {
-			return BuDDySharp.var(arg0.Id);
+			return new bdd(BuDDySharp.nithvar(arg0), false);
 		}
 		
 		public static bdd mark_ithvar_npure_bool(int arg0) {
-			return new bdd(BuDDySharp.mark_ithvar_npure_bool(arg0));
+			return new bdd(BuDDySharp.mark_ithvar_npure_bool(arg0), false);
 		}
 		
-		public static bool not_pure_bool(BDD arg0) {
-			return BuDDySharp.not_pure_bool(arg0);
+		public bool not_pure_bool() {
+			return BuDDySharp.not_pure_bool(_id);
+		}
+		
+		public static bdd makeset(int[] arg0, int arg1) {
+			return new bdd(BuDDySharp.bdd_makeset_addref(arg0, arg1), false);
 		}
 		
 		public bdd Low() {
-			return new bdd(BuDDySharp.low(this.Id));
+			return new bdd(BuDDySharp.bdd_low_addref(this.Id), false);
 		}
 		
 		public bdd High() {
-			return new bdd(BuDDySharp.high(this.Id));
+			return new bdd(BuDDySharp.bdd_high_addref(this.Id), false);
 		}
 		
 		public int[] Scanset() {
