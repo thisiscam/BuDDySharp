@@ -164,6 +164,7 @@ typedef void (*bddallsathandler)(char*, int);
 typedef void (*bddgbchandler)(int,bddGbcStat*);
 
 extern bddgbchandler  bdd_gbc_hook(bddgbchandler);
+extern void     bdd_default_gbchandler(int, bddGbcStat *);
 
 %apply int FIXED[] {
    int *varset,
@@ -373,6 +374,25 @@ extern void     bdd_stats(bddStat *);
 extern void     bdd_printstat(void);
 
 extern int      bdd_setcacheratio(int);
+
+extern int      bdd_swapvar(int v1, int v2);
+extern void     bdd_default_reohandler(int);
+extern void     bdd_reorder(int);
+extern int      bdd_reorder_gain(void);
+extern void     bdd_clrvarblocks(void);
+extern int      bdd_intaddvarblock(int, int, int);
+extern void     bdd_varblockall(void);
+extern int      bdd_autoreorder(int);
+extern int      bdd_autoreorder_times(int, int);
+extern int      bdd_var2level(int);
+extern int      bdd_level2var(int);
+extern int      bdd_getreorder_times(void);
+extern int      bdd_getreorder_method(void);
+extern void     bdd_enable_reorder(void);
+extern void     bdd_disable_reorder(void);
+extern int      bdd_reorder_verbose(int);
+extern void     bdd_setvarorder(int *);
+extern void     bdd_printorder(void);
 
 inline void bdd_stats(bddStat& s)
 { bdd_stats(&s); }

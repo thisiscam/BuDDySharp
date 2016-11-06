@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
 namespace BuDDySharp {
@@ -98,17 +99,29 @@ namespace BuDDySharp {
         } 
         #endregion
     }
-
+    
     public partial class bdd {
-        public override string ToString ()
+        private string ToStringCached(Dictionary<int, string> cache)
         {
             if (this.EqualEqual (BuDDySharp.bddtrue)) {
                 return "t";
             } else if (this.EqualEqual (BuDDySharp.bddfalse)) {
                 return "f";
             } else {
-                return String.Format("({0} {1} {2})", BuDDySharp.var(this), BuDDySharp.low(this), BuDDySharp.high(this));
+                var i = this.id();
+                if(!cache.ContainsKey(i)) {
+                    var ret = String.Format("({0} {1} {2})", BuDDySharp.var(this), 
+                            BuDDySharp.low(this).ToStringCached(cache), 
+                            BuDDySharp.high(this).ToStringCached(cache)
+                    );
+                    cache[i] = ret;
+                }
+                return cache[i];
             }
+        }
+        public override string ToString ()
+        {
+            return ToStringCached(new Dictionary<int, string>());
         }
     }
 }
