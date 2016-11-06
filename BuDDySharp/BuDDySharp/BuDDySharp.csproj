@@ -57,50 +57,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="..\..\build\generated\BDDException.cs">
-      <Link>generated\BDDException.cs</Link>
-    </Compile>
-    <Compile Include="..\..\build\generated\BuDDySharp.cs">
-      <Link>generated\BuDDySharp.cs</Link>
-    </Compile>
-    <Compile Include="..\..\build\generated\BuDDySharpPINVOKE.cs">
-      <Link>generated\BuDDySharpPINVOKE.cs</Link>
-    </Compile>
-    <Compile Include="..\..\build\generated\SWIGTYPE_p_int.cs">
-      <Link>generated\SWIGTYPE_p_int.cs</Link>
-    </Compile>
-    <Compile Include="..\..\build\generated\bdd.cs">
-      <Link>generated\bdd.cs</Link>
-    </Compile>
-    <Compile Include="..\..\build\generated\bddGbcStat.cs">
-      <Link>generated\bddGbcStat.cs</Link>
-    </Compile>
-    <Compile Include="..\..\build\generated\bddPair.cs">
-      <Link>generated\bddPair.cs</Link>
-    </Compile>
-    <Compile Include="..\..\build\generated\bddStat.cs">
-      <Link>generated\bddStat.cs</Link>
-    </Compile>
-    <Compile Include="..\..\build\generated\bdd_ext.cs">
-      <Link>generated\bdd_ext.cs</Link>
-    </Compile>
-    <Compile Include="..\..\build\generated\bvector.cs">
-      <Link>generated\bvector.cs</Link>
-    </Compile>
+    <Compile Include="Structs.cs" />
+    <Compile Include="BuDDySharp.cs" />
+    <Compile Include="bdd.cs" />
+    <Compile Include="BuDDySharpExt.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <None Include="..\..\build\libbuddysharp_native.so" Condition="'$(OS)' != 'Windows_NT'">
-      <Link>libbuddysharp_native.so</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="..\..\build\Debug\buddysharp_native.dll" Condition="'$(OS)' == 'Windows_NT'">
-      <Link>buddysharp_native.dll</Link>
+    <None Include="..\..\build\buddy\src\*buddy_shared.*">
+      <Link>NativeLibs\libbuddy_shared.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\build\buddy\src\Debug\buddy_shared.dll" Condition="'$(OS)' == 'Windows_NT'">
-      <Link>buddy_shared.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <None Include="..\..\build\wrapper\*buddysharp_extension.*">
+      <Link>NativeLibs\libbuddysharp_extension.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="NativeLibs\" />
   </ItemGroup>
 </Project>
