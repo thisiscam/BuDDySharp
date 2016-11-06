@@ -138,7 +138,7 @@ namespace BuDDySharp
             } else if (this.EqualEqual (bddfalse)) {
                 return "f";
             } else {
-            	if(cache.ContainsKey(_id)) {
+            	if(!cache.ContainsKey(_id)) {
 	                var ret = String.Format("({0} {1} {2})", Var(), Low().ToStringHelper(cache), High().ToStringHelper(cache));
 	                cache[_id] = ret;
                 }
@@ -148,7 +148,11 @@ namespace BuDDySharp
         
         public override string ToString()
 		{
-            return ToStringHelper(new Dictionary<BDD, string>());
+			if(BuDDySharp.nodecount(_id) < 100) {
+            	return ToStringHelper(new Dictionary<BDD, string>());
+            } else {
+            	return "bdd";
+			}
 		}
 		
 		public void PrintDot()
