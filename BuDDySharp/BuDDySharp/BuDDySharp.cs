@@ -2,6 +2,7 @@
 using System.Runtime.InteropServices;
 using System.Security;
 using BDD = System.Int32;
+using BDDVAR = System.Int32;
 
 namespace BuDDySharp
 {	
@@ -130,7 +131,7 @@ namespace BuDDySharp
 		
 		[SuppressUnmanagedCodeSecurity]		
 		[DllImport(DLL_NAME, EntryPoint="bdd_var")]
-		public static extern int var(BDD arg0);
+		public static extern BDDVAR var(BDD arg0);
 		
 		[SuppressUnmanagedCodeSecurity]		
 		[DllImport(DLL_NAME, EntryPoint="bdd_mark_ithvar_npure_bool")]
