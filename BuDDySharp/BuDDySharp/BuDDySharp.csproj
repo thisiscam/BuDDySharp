@@ -65,12 +65,20 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <None Include="..\..\build\wrapper\libbuddysharp_extension.*">
+    <None Include="..\..\build\wrapper\libbuddysharp_extension.*" Condition="'$(OS)' != 'Windows_NT'">
       <Link>libbuddysharp_extension.dylib</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\build\buddy\src\libbuddy_shared.*">
+    <None Include="..\..\build\buddy\src\libbuddy_shared.*" Condition="'$(OS)' != 'Windows_NT'">
       <Link>libbuddy_shared.dylib</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\build\wrapper\$(Configuration)\buddysharp_extension.dll" Condition="'$(OS)' == 'Windows_NT'">
+      <Link>buddysharp_extension.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\build\buddy\src\$(Configuration)\buddy_shared.dll" Condition="'$(OS)' == 'Windows_NT'">
+      <Link>buddy_shared.dll</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
