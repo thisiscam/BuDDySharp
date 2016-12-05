@@ -14,7 +14,7 @@ namespace BuDDySharp
 		public delegate int bddsizehandler();
 		public unsafe delegate void bddallsathandler(char* arg0, int arg1);
 
-		const string DLL_NAME = "buddysharp_extension";
+		const string DLL_NAME = "buddy_shared";
 		
 		[SuppressUnmanagedCodeSecurity]		
 		[DllImport(DLL_NAME, EntryPoint="bdd_error_hook")]

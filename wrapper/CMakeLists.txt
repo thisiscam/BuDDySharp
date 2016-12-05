@@ -1,3 +1,5 @@
+set(CMAKE_SKIP_RPATH TRUE)
+
 add_library(buddysharp_extension SHARED
 	wrapper.c
 )
